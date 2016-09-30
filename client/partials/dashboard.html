@@ -1,0 +1,53 @@
+<div ng-controller="topicsController">
+
+	<h2>DASHBOARD</h2>
+
+	<button class="btn btn-danger" ng-click='getCookies()'>Cookies</button>
+
+	<div class="col-sm-8 col-sm-offset-2">
+		<table class="table table-striped">
+			<thead>
+				<th>Category</th>
+				<th>Topic</th>
+				<th>Poster's Name</th>
+				<th>Posts</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="topic in topics track by $index">
+					<td> <a href="" ng-click='showTopic(topic._id, $index)'> {{topic.category}} </a></td>
+					<td> {{topic.topic}} </td>
+					<td> {{topic.user}} </td>
+					<td> {{topic.posts}} </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="col-sm-6">
+		<h4>Add a new topic:</h4>
+
+		<form class="form-group" ng-submit='add()' name='addForm'>
+			<div class="form-group">
+				<label>Topic:</label>
+				<input type="text" class="form-control" placeholder="Topic Name" ng-model="addTopic.topic">
+
+				<label>Description:</label>
+				<textarea class="form-control" ng-model="addTopic.description"></textarea>
+
+				<label>Category:</label>
+				<select class="form-control" id="category" ng-model="addTopic.category">
+			      <option id="html">HTML</option>
+			      <option id="ux">UX</option>
+			      <option id="javascript">JavaScript</option>
+			      <option id="ruby">Ruby</option>
+			      <option id="php">PHP</option>
+			      <option id="ios">iOS</option>
+			    </select>
+			</div>
+			<input type="submit" class="btn btn-primary" value="Create">
+		</form>
+		
+	</div>
+
+</div>
