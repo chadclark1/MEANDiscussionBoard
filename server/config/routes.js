@@ -1,18 +1,20 @@
 console.log('Routes.js: future routes');
 
 var users = require('./../controllers/users.js');
-// var topics = require('./../controllers/topics.js');
+var items = require('./../controllers/items.js');
 
 
-// var quotes = require('../controllers/quotes.js')
+
 module.exports = function(app){
+	app.get('/users', users.index);
     app.post('/users/login', users.login);
     app.post('/users/register', users.register);
-    // app.post('/topics', topics.addTopic);
-    // app.get('/topics', topics.index);
-    // app.get('/topics/:id', topics.show);
-  // app.post('/customers', customers.addCustomer);
-  // app.get('/customers', customers.index);
-  // app.delete('/customers/:id', customers.delete);
+    app.post('/items', items.addItem);
+    app.post('/tagItems', items.tagItem);
+    app.get('/items', items.getItems);
+    app.get('/items/:username', items.getUserItems);
+    app.get('/items/id/:id', items.getUserItemsById);
+    app.post('/items/checked', items.checked);
+    
   
 }

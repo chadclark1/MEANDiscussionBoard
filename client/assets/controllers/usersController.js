@@ -6,16 +6,6 @@ console.log("usersController loaded");
 app.controller('usersController', ['$scope','userFactory', '$location', '$cookies', function($scope, userFactory, $location, $cookies) {
 
 
-// var index = function(){
-                    
-//                         userFactory.index(function(returnedData){
-//                           // console.log("back to index");
-//                           $scope.users = returnedData;
-//                           // console.log($scope.customers);
-//                         });
-//             };
-// index();
-
 
 
 
@@ -61,39 +51,6 @@ app.controller('usersController', ['$scope','userFactory', '$location', '$cookie
     //   // $location.url('/wall');
     })
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  $scope.add = function(){
-    console.log("in user add function");
-    console.log($scope.addUser);
-    userFactory.add($scope.addUser, function(returnedData){
-      console.log(returnedData);
-      index();
-    })
-  }
-
-  $scope.delete = function(id){
-    console.log("delete");
-    console.log(id)
-    userFactory.delete(id, function(){
-      console.log("delete callback controller");
-      index();
-    })
-  }
-
   
 
 
